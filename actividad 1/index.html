@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro</title>
+</head>
+<body>
+    <h2>Registro de clientes</h2>
+    <form id="formulario">
+        <label id="labelNombre">Nombre completo:</label>
+        <input type="text" id="nombre">
+
+        <label id="labelEmail">Correo electrónico:</label>
+        <input type="text" id="email">
+
+        <label id="labelTelefono">Teléfono:</label>
+        <input type="text" id="telefono">
+        <br><br>
+
+        <label id="labelObjetivo">Objetivo o meta en el gimnasio:</label>
+        <textarea id="objetivo"></textarea>
+        <br><br>
+
+        <label id="labelSuscripciones">Tipo de Suscripción:</label>
+        <select id="suscripciones">
+            <option value="">--Seleccione--</option>
+            <option value="semanal">Semanal</option>
+            <option value="mensual">Mensual</option>
+            <option value="anual">Anual</option>
+        </select>
+        <br><br>
+
+        <label id="labelServicios">Servicios adicionales:</label>
+        <div>
+            <label><input type="checkbox" value="nutricion"> Nutrición</label>
+            <label><input type="checkbox" value="entrenador"> Entrenador personal</label>
+            <label><input type="checkbox" value="clases"> Clases grupales</label>
+            <label><input type="checkbox" value="spa"> Spa</label>
+            <label><input type="checkbox" value="masajes"> Masajes</label>
+        </div>
+        <br>
+        <button type="button" onclick="validarFormulario()">Registrar</button>
+    </form>
+
+
+    <script>
+        function validarFormulario() {
+        
+        const nombre = document.getElementById("nombre");
+        const email = document.getElementById("email");
+        const telefono = document.getElementById("telefono");
+        const objetivo = document.getElementById("objetivo");
+        const suscripciones = document.getElementById("suscripciones");
+
+        const labelNombre = document.getElementById("labelNombre");
+        const labelEmail = document.getElementById("labelEmail");
+        const labelTelefono = document.getElementById("labelTelefono");
+        const labelObjetivo = document.getElementById("labelObjetivo");
+        const labelSuscripciones = document.getElementById("labelSuscripciones");
+        const labelServicios = document.getElementById("labelServicios");
+
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        let alMenosUnoMarcado = false;
+        checkboxes.forEach(c => {
+            if (c.checked) {
+            alMenosUnoMarcado = true;
+            }
+        });
+
+        function validarCampo(campo, etiqueta) {
+            if (campo.value.trim() === "") {
+            campo.style.border = "2px solid red";
+            etiqueta.style.color = "red";
+            } else {
+            campo.style.border = "2px solid green";
+            etiqueta.style.color = "green";
+            }
+        }
+
+        // Validaciones
+        validarCampo(nombre, labelNombre);
+        validarCampo(email, labelEmail);
+        validarCampo(telefono, labelTelefono);
+        validarCampo(objetivo, labelObjetivo);
+
+        if (suscripciones.value === "") {
+            suscripciones.style.border = "2px solid red";
+            labelSuscripciones.style.color = "red";
+        } else {
+            suscripciones.style.border = "2px solid green";
+            labelSuscripciones.style.color = "green";
+        }
+
+        if (!alMenosUnoMarcado) {
+            labelServicios.style.color = "red";
+
+        } else {
+            labelServicios.style.color = "green";
+        }
+        }
+    </script>
+</body>
+</html>
