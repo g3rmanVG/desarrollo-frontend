@@ -41,6 +41,11 @@
         </div>
         <br>
         <button type="button" onclick="validarFormulario()">Registrar</button>
+
+        <!-- Agregamos el contenedor para los nuevos registros -->
+        <h3>Listado de Clientes:</h3>
+        <div id="listaClientes" style="margin-top: 20px;"></div>
+
     </form>
 
 
@@ -69,38 +74,96 @@
             }
         });
 
-        function validarCampo(campo, etiqueta) {
-            if (campo.value.trim() === "") {
-            campo.style.border = "2px solid red";
-            etiqueta.style.color = "red";
-            } else {
-            campo.style.border = "2px solid green";
-            etiqueta.style.color = "green";
-            }
-        }
-
-        // Validaciones
-        validarCampo(nombre, labelNombre);
-        validarCampo(email, labelEmail);
-        validarCampo(telefono, labelTelefono);
-        validarCampo(objetivo, labelObjetivo);
-
-        if (suscripciones.value === "") {
-            suscripciones.style.border = "2px solid red";
-            labelSuscripciones.style.color = "red";
-        } else {
-            suscripciones.style.border = "2px solid green";
-            labelSuscripciones.style.color = "green";
-        }
-
         if (!alMenosUnoMarcado) {
             labelServicios.style.color = "red";
 
         } else {
             labelServicios.style.color = "green";
         }
+
+        // Modificamos la función para que retorne true o false
+        function validarCampo(campo, etiqueta) {
+            if (campo.value.trim() === "") {
+            campo.style.border = "2px solid red";
+            etiqueta.style.color = "red";
+            return false;
+            } else {
+            campo.style.border = "2px solid green";
+            etiqueta.style.color = "green";
+            return true;
+            }
         }
-        
+
+        // Guardamos el resultado de las validaciones
+
+        let nombreValido = validarCampo(nombre, labelNombre);
+        let emailValido = validarCampo(email, labelEmail);
+        let telefonoValido = validarCampo(telefono, labelTelefono);
+        let objetivoValido = validarCampo(objetivo, labelObjetivo);
+
+        // bandera para validar la suscripcion
+        let suscripcionValida = true
+
+        if (suscripciones.value === "") {
+            suscripciones.style.border = "2px solid red";
+            labelSuscripciones.style.color = "red";
+            suscripcionValida = false
+        } else {
+            suscripciones.style.border = "2px solid green";
+            labelSuscripciones.style.color = "green";
+        }
+
+        // verificamos que todos los campos sean validos
+
+        const formularioValido =
+        nombreValido &&
+        emailValido &&
+        telefonoValido &&
+        objetivoValido &&
+        suscripcionValida &&
+        alMenosUnoMarcado;
+
+        // creamos y agregamos el cliente al contenedor
+
+        if (formularioValido) {
+                const contenedor = document.getElementById("listaClientes");
+
+                const clienteDiv = document.createElement("div");
+                clienteDiv.style.border = "1px solid #ccc";
+                clienteDiv.style.padding = "10px";
+                clienteDiv.style.marginBottom = "10px";
+                clienteDiv.style.borderRadius = "8px";
+                clienteDiv.style.backgroundColor = "#ddd";
+
+                const serviciosSeleccionados = [];
+                checkboxes.forEach(c => {
+                    if (c.checked) {
+                        serviciosSeleccionados.push(c.parentElement.textContent.trim());
+                    }
+                });
+
+                clienteDiv.innerHTML = `
+                    <strong>Nombre:</strong> ${nombre.value}<br>
+                    <strong>Email:</strong> ${email.value}<br>
+                    <strong>Teléfono:</strong> ${telefono.value}<br>
+                    <strong>Objetivo:</strong> ${objetivo.value}<br>
+                    <strong>Suscripción:</strong> ${suscripciones.value}<br>
+                    <strong>Servicios:</strong> ${serviciosSeleccionados.join(', ')}
+                `;
+
+                contenedor.appendChild(clienteDiv);
+
+                document.getElementById("formulario").reset();
+
+                [nombre, email, telefono, objetivo, suscripciones].forEach(campo => {
+                    campo.style.border = "";
+                });
+                [labelNombre, labelEmail, labelTelefono, labelObjetivo, labelSuscripciones, labelServicios].forEach(etiqueta => {
+                    etiqueta.style.color = "";
+                });
+            }
+  
+        }   
     </script>
 </body>
 </html>
