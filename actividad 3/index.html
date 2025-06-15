@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de registro</title>
+  <!-- Enlazamos la hoja de estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Registro de clientes</h2>
+
+  <form id="formulario">
+    <div class="form-row">
+      <div class="form-group">
+        <label id="labelNombre">Nombre completo:</label>
+        <input type="text" id="nombre">
+      </div>
+
+      <div class="form-group">
+        <label id="labelEmail">Correo electrónico:</label>
+        <input type="email" id="email">
+      </div>
+
+      <div class="form-group">
+        <label id="labelTelefono">Teléfono:</label>
+        <input type="text" id="telefono">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label id="labelObjetivo">Objetivo o meta en el gimnasio:</label>
+        <textarea id="objetivo" maxlength="25"></textarea>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label id="labelSuscripciones">Tipo de Suscripción:</label>
+        <select id="suscripciones">
+          <option value="">--Seleccione--</option>
+          <option value="semanal">Semanal</option>
+          <option value="mensual">Mensual</option>
+          <option value="anual">Anual</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row checkbox-group">
+      <label id="labelServicios">Servicios adicionales:</label>
+      <label><input type="checkbox" value="nutricion"> Nutrición</label>
+      <label><input type="checkbox" value="entrenador"> Entrenador personal</label>
+      <label><input type="checkbox" value="clases"> Clases grupales</label>
+      <label><input type="checkbox" value="spa"> Spa</label>
+      <label><input type="checkbox" value="masajes"> Masajes</label>
+    </div>
+
+    <button type="button" onclick="validarFormulario()">Registrar cliente</button>
+  </form>
+
+  <h3>Listado de Clientes:</h3>
+  <!-- Agregamos el botón para borrar la lista -->
+  <button type="button" id="borrarTodo" onclick="borrarLista()">Borrar lista</button>
+  <div id="listaClientes" style="margin-top: 20px;"></div>
+  <!-- Enlazamos el script -->
+  <script src="index.js"></script>
+</body>
+</html>
