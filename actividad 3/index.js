@@ -105,9 +105,10 @@ function validarFormulario() {
     `;
 
     clienteDiv.appendChild(datosCliente);
-    // Crear el botón para eliminar
+    
+    // Crear el botón para eliminar 
     const botonBorrar = document.createElement("button");
-    botonBorrar.textContent = "🗑️ Eliminar";
+    botonBorrar.textContent = "❌ Eliminar";
     botonBorrar.className = "boton-eliminar"
 
     // Agregamos el evento al botón para que se elimine
@@ -117,7 +118,7 @@ function validarFormulario() {
             clienteDiv.remove();
         }
     });
-    // agregamos el botón a su respectivo contenedor
+    // agregamos el botón a su respectivo contenedor cliente
     clienteDiv.appendChild(botonBorrar);
 
     contenedor.appendChild(clienteDiv);
@@ -134,6 +135,7 @@ function validarFormulario() {
   }
 }
 
+// Función para limpiar la lista completa
 function borrarLista() {
   const confirmar = confirm("¿Estás seguro de borrar toda la lista de clientes?");
   if (confirmar) {

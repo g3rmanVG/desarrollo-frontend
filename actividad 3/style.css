@@ -1,15 +1,13 @@
-/* Contenedor principal centrado */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #e0e0e0;
     margin: 0;
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-/* Estilo general del formulario */
+/* Formulario */
 form {
     background-color: #fff;
     padding: 25px;
@@ -22,7 +20,6 @@ form {
     gap: 20px;
 }
 
-/* Agrupar los campos en columnas */
 .form-row {
     display: flex;
     gap: 20px;
@@ -36,7 +33,6 @@ form {
     flex-direction: column;
 }
 
-/* Inputs y selects */
 input[type="text"],
 input[type="email"],
 input[type="number"],
@@ -50,14 +46,12 @@ select {
     margin-top: 5px;
 }
 
-/* Estilo para textarea más grande */
 textarea {
     resize: vertical;
     min-height: 60px;
     resize: none;
 }
 
-/* Botones */
 form button {
     padding: 10px 15px;
     background-color: #2980b9;
@@ -73,7 +67,6 @@ form button:hover {
     background-color: #1f5f8b;
 }
 
-/* Sección de checkboxes */
 .checkbox-group label {
     margin-right: 10px;
     display: inline-block;
