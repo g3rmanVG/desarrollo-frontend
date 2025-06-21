@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Publicaciones</title>
+      <!-- Enlazamos la hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- regristo manual -->
+<h2>Formulario de Publicación (Manual)</h2>
+<form id="manualForm">
+    <label for="titulo">Título:</label><br>
+    <input type="text" id="titulo" required><br><br>
+
+    <label for="contenido">Contenido:</label><br>
+    <textarea id="contenido" required></textarea><br><br>
+
+    <label for="autor">Autor:</label><br>
+    <input type="text" id="autor" required><br><br>
+
+    <label for="fecha">Fecha:</label><br>
+    <input type="date" id="fecha" required><br><br>
+
+    <button type="submit">Generar JSON</button>
+</form>
+
+<div id="jsonOutput"></div>
+
+<!-- registro en forma de JSON -->
+<h2>Ingresar Publicaciones como JSON (Cadena)</h2>
+<form id="jsonForm">
+    <label for="publicacionJson">Pega aquí el JSON de publicaciones:</label><br>
+    <textarea id="publicacionJson" rows="8" required></textarea><br><br>
+    <button type="submit">Mostrar como Tabla</button>
+</form>
+
+<div id="tableOutput"></div>
+<script src="index.js"></script>
+</body>
+</html>
