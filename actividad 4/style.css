@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  margin-top: 40px;
+  color: #333;
+}
+
+input, textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#jsonOutput {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}
