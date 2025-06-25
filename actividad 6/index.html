@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Búsqueda y filtrado de Usuarios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Buscar y filtrar Usuarios</h1>
+
+  <form id="busquedaForm">
+    <select id="busquedaSelect">
+      <option value="id">ID</option>
+      <option value="name">Nombre</option>
+      <option value="username">Usuario</option>
+      <option value="email">Email</option>
+      <option value="address.city">Ciudad</option>
+    </select>
+
+    <input type="text" id="busquedaInput" placeholder="Escribe aquí..." />
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Ciudad</th>
+        <th>Calle</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+  </table>
+
+  <script src="index.js"></script>
+</body>
+</html>
